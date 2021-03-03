@@ -1,10 +1,10 @@
 package deliveryhandler.backend.service;
 
-import deliveryhandler.backend.data.Package;
+import deliveryhandler.backend.data.DailyPackages;
 import deliveryhandler.backend.exception.EntityNotFoundException;
+import deliveryhandler.backend.repository.DailyPackageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import deliveryhandler.backend.repository.PackageRepository;
 
 import java.util.List;
 
@@ -12,22 +12,22 @@ import java.util.List;
 public class PackageService {
 
     @Autowired
-    private PackageRepository packageRepository;
+    private DailyPackageRepository dailyPackageRepository;
 
-    public List<Package> findAll(){
-        return packageRepository.findAll();
+    public List<DailyPackages> findAll(){
+        return dailyPackageRepository.findAll();
     }
 
-    public Package findById(String id){
-        return packageRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+    public DailyPackages findById(String id){
+        return dailyPackageRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public Package save(Package pack){
-        return packageRepository.save(pack);
+    public DailyPackages save(DailyPackages pack){
+        return dailyPackageRepository.save(pack);
     }
 
     public void deleteById(String id){
-        packageRepository.deleteById(id);
+        dailyPackageRepository.deleteById(id);
     }
 
 }

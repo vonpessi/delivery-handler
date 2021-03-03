@@ -4,14 +4,14 @@ public class DailyPackages {
 
     private String id;
     private String date;
-    private Package pack;
+    private Package packageInfo;
 
-    public Package getPack() {
-        return pack;
+    public Package getPackageInfo() {
+        return packageInfo;
     }
 
-    public void setPack(Package pack) {
-        this.pack = pack;
+    public void setPackageInfo(Package packageInfo) {
+        this.packageInfo = packageInfo;
     }
 
     public String getId() {

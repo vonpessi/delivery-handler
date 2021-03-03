@@ -1,5 +1,6 @@
 package deliveryhandler.backend.controller;
 
+import deliveryhandler.backend.data.DailyPackages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import deliveryhandler.backend.service.PackageService;
@@ -15,23 +16,23 @@ public class PackageController {
     private PackageService packageService;
 
     @GetMapping
-    public List<Package> findAll(){
+    public List<DailyPackages> findAll(){
         return packageService.findAll();
     }
 
     @GetMapping("/{id}")
-    public Package findById(@PathVariable String id){
+    public DailyPackages findById(@PathVariable String id){
         return packageService.findById(id);
     }
 
     @PostMapping
-    public Package create(@RequestBody Package pack){
-        return packageService.save(pack);
+    public DailyPackages create(@RequestBody DailyPackages dailyPack){
+        return packageService.save(dailyPack);
     }
 
     @PutMapping("/{id}")
-    public Package update(@RequestBody Package pack){
-        return packageService.save(pack);
+    public DailyPackages update(@RequestBody DailyPackages dailyPack){
+        return packageService.save(dailyPack);
     }
 
     @DeleteMapping("/{id}")
